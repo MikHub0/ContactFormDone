@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text="${pageTitle}">it-Geeks</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/css/main.css}">
+</head>
+
+<body>
+
+<header class="header">
+    <div class="mobile-underline">
+        <button class="hamburger hamburger--emphatic" type="button">
+                <span class="hamburger-box">
+                    <span class="hamburger-inner"></span>
+                    <span class="hamburger-inner"></span>
+                    <span class="hamburger-inner"></span>
+                </span>
+        </button>
+
+        <nav class="nav nav-desktop">
+            <a class="nav__link" th:href="@{#agency}">Agencja</a>
+            <a class="nav__link" th:href="@{#portfolio}">Portfolio</a>
+            <a class="nav__link" th:href="@{#offer}">Oferta</a>
+            <a class="nav__link" th:href="@{#blog}">Blog</a>
+            <a class="nav__link" th:href="@{#contact}">Kontakt</a>
+        </nav>
+
+        <a th:href="@{/}" class="logo"><img th:src="@{/img/icons/logo.png}" alt="Logo"></a>
+    </div>
+    <nav class="nav nav-mobile">
+        <a class="nav__link" th:href="@{#agency}">Agencja</a>
+        <a class="nav__link" th:href="@{#portfolio}">Portfolio</a>
+        <a class="nav__link" th:href="@{#offer}">Oferta</a>
+        <a class="nav__link" th:href="@{#blog}">Blog</a>
+        <a class="nav__link" th:href="@{#contact}">Kontakt</a>
+        <div class="nav-shadow"></div>
+    </nav>
+
+    <div class="header__text">
+        <h1 class="company-name">It-Geeks</h1>
+        <p th:text="'Profesjonalne usługi IT dla biznesu - Zaufaj specjalistom'">[Tekst zastępczy]</p>
+    </div>
+
+    <div class="header__img">
+        <div class="header__shadow"></div>
+    </div>
+
+    <a th:href="@{#agency}">
+        <div class="header__arrow">
+            <img class="header__arrow-icon" th:src="@{/img/icons/arrow.svg}" alt="Arrow">
+        </div>
+    </a>
+
+    <div class="hero-shadow"></div>
+</header>
+
+<div class="header__text">
+    <h1 class="company-name">It-Geeks</h1>
+    <p th:text="'Profesjonalne usługi IT dla biznesu - Zaufaj specjalistom'">[Tekst zastępczy]</p>
+</div>
+
+<section id="agency" class="agency">
+
+    <div class="wrapper">
+
+        <div class="agency__text">
+            <h2 class="agency-title"><span class="congrats">Gratulacje</span> poświęciłeś swój czas i znalazłeś nas!</h2>
+            <p class="agency__text-p">Jesteśmy po to by <span class="agency-p-span">pomóc Ci się szybko wzbogacić i cieszyć się życiem.</span> W IT@Geeks zajmujemy kompleksową obsługą IT oraz profesjonalną kreacją serwisów internetowych, które zapewnią Ci sukces w internecie.</p>
+        </div>
+    </div>
+
+    <div class="cards-box" onclick="void(0)">
+
+        <div class="card card-one">
+
+            <img th:src="@{/img/icons/database.svg}" alt="">
+            <h3 class="card__title">Usługi hostingowe</h3>
+            <p>Po naszej stronie prowadzone są wszystkie prace związane z konfiguracją oraz bezpieczeństwem danych. Pierwszy rok usług gratis!</p>
+            <a th:href="@{/hostingservices.html}"><button class="card__button">Czytaj</button></a>
+
+        </div>
+
+        <div class="card card-two">
+
+            <img th:src="@{/img/icons/check-square.svg}" alt="">
+            <h3 class="card__title">Strony internetowe</h3>
+            <p>Po naszej stronie prowadzone są wszystkie prace związane z konfiguracją oraz bezpieczeństwem danych. Pierwszy rok usług gratis!</p>
+            <a th:href="@{/websides.html}"><button class="card__button">Czytaj</button></a>
+
+        </div>
+
+        <div class="card card-three">
+
+            <img th:src="@{/img/icons/trendingup.svg}" alt="">
+            <h3 class="card__title">Pozycjonowanie</h3>
+            <p>Dbamy nie tylko w trakcie realizacji ale i po oddaniu gotowego projektu. Nasza firma daje gwarancję pierwszej 10 google!</p>
+            <a th:href="@{/positioning.html}"><button class="card__button">Czytaj</button></a>
+        </div>
+
+        <div class="card card-four">
+
+            <img th:src="@{/img/icons/briefcase.svg}" alt="">
+            <h3 class="card__title">Opieka informatyczna</h3>
+            <p>Usługi informatyczne w IT Geeks to spokój i bezpieczeństwo dla Twoich danych.</p>
+            <a th:href="@{/itsupport.html}"><button class="card__button">Czytaj</button></a>
+        </div>
+
+    </div>
+
+</section>
+
+<section class="contact" id="contact">
+    <div class="wrapper">
+        <h2 class="section-title">Kontakt</h2>
+        <form th:action="@{/submit}" method="post" th:object="${contactForm}" class="contact__form">
+            <div class="contact__form-box">
+                <label for="name">Twoje imię:</label>
+                <input type="text" id="name" th:field="*{name}" placeholder="Wpisz swoje imię" required>
+            </div>
+            <div class="contact__form-box">
+                <label for="mail">Twój email:</label>
+                <input type="email" id="mail" th:field="*{email}" placeholder="Wpisz swój email" required>
+            </div>
+            <div class="contact__form-box">
+                <label for="msg">Twoja wiadomość:</label>
+                <textarea id="msg" th:field="*{msg}" placeholder="Wpisz swoją wiadomość" cols="30" rows="10" required></textarea>
+            </div>
+
+            <div class="checkbox">
+                <input type="checkbox" id="exampleCheckbox" required>
+                <label for="exampleCheckbox">Wyrażam zgodę na przetwarzanie moich danych osobowych zgodnie z ustawą o ochronie danych osobowych w celu wysyłania informacji handlowych i marketingowych. Podanie danych osobowych jest dobrowolne. Zostałem poinformowany, że przysługuje mi prawo dostępu do swoich danych, możliwość ich poprawiania, żądania zaprzestania ich przetwarzania.</label>
+            </div>
+
+            <button type="submit" class="contact__form-btn">Wyślij</button>
+        </form>
+    </div>
+</section>
+
+
+<script th:src="@{/resources/static/js/script.js}"></script>
+</body>
+
+</html>
+
+
+
